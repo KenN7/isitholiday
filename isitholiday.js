@@ -66,10 +66,8 @@ class Checker {
     modifyPage() {
         var yesBox = document.getElementById("holiday");
         var reasonBox = document.getElementById("why");
-        var dateBox = document.getElementById("date");
         var yestdBox = document.getElementById("holidaytd");
         var reasontdBox = document.getElementById("whytd");
-        var datetdBox = document.getElementById("datetd");
         var tomo = this.check(1)
         if ( tomo ) {
             yesBox.innerHTML = "YES.";
