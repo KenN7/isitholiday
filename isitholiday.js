@@ -8,7 +8,7 @@ var holidays = [
     ["2018-12-28", "the day ULB thinks you should take a break."],
     ["2018-12-31", "the day ULB thinks you should get drunk."],
     ["2019-01-01", "the New Year!! BTW Happy New Year ;)"],
-    ["2019-01-01", "a random holiday that we all enjoy."],
+    ["2019-01-02", "a random holiday that we all enjoy."],
     ["2019-04-22", "Easter."],
     ["2019-05-01", "the celebration of work."],
     ["2019-05-30", "the feast of the Ascension."],
