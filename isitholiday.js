@@ -50,6 +50,21 @@ class Checker {
         }
     }
 
+    nextHoliday() {
+        var day = new Date()
+        day.setDate(day.getDate() + 2)
+        console.log("today")
+        console.log(day)
+        var nextholiday = this.days.find( x => new Date(x[0]+" 12:00:00Z") > day )
+        if ( nextholiday ) { //if special holiday from list
+            console.log(nextholiday)
+            return nextholiday;
+        }
+        else {
+            return "No next holiday";
+        }
+    }
+
     checkWE(day) {
         if (day.getDay() == 6) {
             return ["Saturday", "the F*cking week-end!"]
@@ -68,6 +83,7 @@ class Checker {
         var reasonBox = document.getElementById("why");
         var yestdBox = document.getElementById("holidaytd");
         var reasontdBox = document.getElementById("whytd");
+        var nextoneBox = document.getElementById("nextone")
         var tomo = this.check(1)
         if ( tomo ) {
             yesBox.innerHTML = "YES.";
@@ -86,6 +102,7 @@ class Checker {
             yestdBox.innerHTML = "NO.";
             reasontdBox.innerHTML = "";
         }
+        nextoneBox.innerHTML = this.nextHoliday()[0];
     }
 
 }
