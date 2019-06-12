@@ -40,7 +40,7 @@ class Checker {
     check(offset) {
         var day = new Date()
         day.setDate(day.getDate() + offset)
-        console.log(day)
+        //console.log(day)
         var holiday = this.days.find( x => this.dateEquality( new Date(x[0]+" 12:00:00Z"), day ) )
         if ( holiday ) { //if special holiday from list
             return holiday;
@@ -52,10 +52,10 @@ class Checker {
 
     nextHoliday() {
         var day = new Date()
-        day.setDate(day.getDate() + 2)
-        console.log("today")
-        console.log(day)
-        var nextholiday = this.days.find( x => new Date(x[0]+" 12:00:00Z") > day )
+        //console.log("today")
+        //console.log(day)
+        day.setDate(day.getDate() + 1)
+        var nextholiday = this.days.find( x => new Date(x[0]+" 00:00:00Z") > day )
         if ( nextholiday ) { //if special holiday from list
             console.log(nextholiday)
             return nextholiday;
