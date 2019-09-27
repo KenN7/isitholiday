@@ -1,6 +1,6 @@
 // hilday calculator
 
-var holidays = [
+const holidays = [
     ["2018-11-20", "the Saint-Verhaegen (celebration of founding of ULB)."],
     ["2018-12-25", "Christmas."],
     ["2018-12-26", "the backup day for 21st of July."],
@@ -23,7 +23,7 @@ var holidays = [
     ["2019-12-27", "the backup day for 2nd of November."],
     ["2019-12-30", "the day ULB thinks you should take a break."],
     ["2019-12-31", "the day ULB thinks you should get drunk."]
-];
+]
 
 class Checker {
     constructor(days) {
@@ -38,10 +38,10 @@ class Checker {
     }
 
     check(offset) {
-        var day = new Date()
+        let day = new Date()
         day.setDate(day.getDate() + offset)
         //console.log(day)
-        var holiday = this.days.find( x => this.dateEquality( new Date(x[0]+" 12:00:00Z"), day ) )
+        let holiday = this.days.find( x => this.dateEquality( new Date(x[0]+" 12:00:00Z"), day ) )
         if ( holiday ) { //if special holiday from list
             return holiday;
         }
@@ -51,11 +51,11 @@ class Checker {
     }
 
     nextHoliday() {
-        var day = new Date()
+        let day = new Date()
         //console.log("today")
         //console.log(day)
         day.setDate(day.getDate() + 1)
-        var nextholiday = this.days.find( x => new Date(x[0]+" 00:00:00Z") > day )
+        let nextholiday = this.days.find( x => new Date(x[0]+" 00:00:00Z") > day )
         if ( nextholiday ) { //if special holiday from list
             console.log(nextholiday)
             return nextholiday;
@@ -78,36 +78,40 @@ class Checker {
 
     }
 
-    modifyPage() {
-        var yesBox = document.getElementById("holiday");
-        var reasonBox = document.getElementById("why");
-        var yestdBox = document.getElementById("holidaytd");
-        var reasontdBox = document.getElementById("whytd");
-        var nextoneBox = document.getElementById("nextone")
-        var tomo = this.check(1)
+    render() {
+
+        let tomo = this.check(1)
+        let yesBox = "NO."
+        let reasonBox = ""
         if ( tomo ) {
-            yesBox.innerHTML = "YES.";
-            reasonBox.innerHTML = "because "+tomo[0]+" is "+tomo[1];
+            yesBox = "YES.";
+            reasonBox = "because "+tomo[0]+" is "+tomo[1];
         }
-        else {
-            yesBox.innerHTML = "NO.";
-            reasonBox.innerHTML = "";
-        }
-        var today = this.check(0)
+        let today = this.check(0)
+        let yestdBox = "NO."
+        let reasontdBox = ""
         if ( today ) {
-            yestdBox.innerHTML = "YES.";
-            reasontdBox.innerHTML = "because "+today[0]+" is "+today[1];
+            yestdBox = "YES.";
+            reasontdBox = "because "+today[0]+" is "+today[1];
         }
-        else {
-            yestdBox.innerHTML = "NO.";
-            reasontdBox.innerHTML = "";
-        }
-        nextoneBox.innerHTML = this.nextHoliday()[0];
+        let nextoneBox = this.nextHoliday()[0];
+        return(`
+        <h1>Is it holiday tomorrow at ULB?</h1>
+        <div id="holiday">${yesBox}</div>
+        <div id="why">${reasonBox}</div>
+          <!-- page today -->
+        <div id="today">
+        <hr>
+        <h4>and what about today?</h4>
+        <div id="holidaytd">${yestdBox}</div>
+        <div>${reasontdBox}</div>
+        <h6>By the way, the next one will be on ${nextoneBox} </h6>
+        </div>`)
     }
 
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-    const check = new Checker(holidays);
-    check.modifyPage();
+    const check = new Checker(holidays)
+    document.getElementById("app").innerHTML = check.render()
 });
