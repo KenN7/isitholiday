@@ -79,7 +79,6 @@ class Checker {
     }
 
     render() {
-
         let tomo = this.check(1)
         let yesBox = "NO."
         let reasonBox = ""
