@@ -27,14 +27,14 @@ const holidays = [
 
 class Checker {
     constructor(days) {
-        this.days = days;
+        this.days = days
     }
 
     dateEquality(date1, date2) {
         return (date1.getFullYear() === date2.getFullYear()) &&
            // getMonth is 0-indexed
            (date1.getMonth() === date2.getMonth()) &&
-           (date1.getDate() === date2.getDate());
+           (date1.getDate() === date2.getDate())
     }
 
     check(offset) {
@@ -43,68 +43,58 @@ class Checker {
         //console.log(day)
         let holiday = this.days.find( x => this.dateEquality( new Date(x[0]+" 12:00:00Z"), day ) )
         if ( holiday ) { //if special holiday from list
-            return holiday;
-        }
-        else { //maybe its friday or saturday ?
-            return this.checkWE(day);
+            return holiday
+        } else { //maybe its friday or saturday ?
+            return this.checkWE(day)
         }
     }
 
     nextHoliday() {
         let day = new Date()
-        //console.log("today")
         //console.log(day)
         day.setDate(day.getDate() + 1)
         let nextholiday = this.days.find( x => new Date(x[0]+" 00:00:00Z") > day )
         if ( nextholiday ) { //if special holiday from list
-            console.log(nextholiday)
-            return nextholiday;
-        }
-        else {
-            return "No next holiday";
+            // console.log(nextholiday)
+            return nextholiday
+        } else {
+            return "No next holiday"
         }
     }
 
     checkWE(day) {
-        if (day.getDay() == 6) {
+        if (day.getDay() === 6) {
             return ["Saturday", "the F*cking week-end!"]
-        }
-        else if (day.getDay() == 0) {
+        } else if (day.getDay() === 0) {
             return ["Sunday", "the F*cking week-end!"]
-        }
-        else {
-            return false;
+        } else {
+            return false
         }
 
     }
 
     render() {
         let tomo = this.check(1)
-        let yesBox = "NO."
         let reasonBox = ""
         if ( tomo ) {
-            yesBox = "YES.";
-            reasonBox = "because "+tomo[0]+" is "+tomo[1];
+            reasonBox = "because "+tomo[0]+" is "+tomo[1]
         }
         let today = this.check(0)
-        let yestdBox = "NO."
         let reasontdBox = ""
         if ( today ) {
-            yestdBox = "YES.";
-            reasontdBox = "because "+today[0]+" is "+today[1];
+            reasontdBox = "because "+today[0]+" is "+today[1]
         }
-        let nextoneBox = this.nextHoliday()[0];
         return(`
         <h1>Is it holiday tomorrow at ULB?</h1>
-        <div id="holiday">${yesBox}</div>
+        <div id="holiday">${ tomo ? 'YES.' : 'NO.' }</div>
         <div id="why">${reasonBox}</div>
           <!-- page today -->
         <div id="today">
         <hr>
         <h4>and what about today?</h4>
-        <div id="holidaytd">${yestdBox}</div>
+        <div id="holidaytd">${ today ? 'YES.' : 'NO.' }</div>
         <div>${reasontdBox}</div>
-        <h6>By the way, the next one will be on ${nextoneBox} </h6>
+        <h6>By the way, the next one will be on ${this.nextHoliday()[0]} </h6>
         </div>`)
     }
 
@@ -113,4 +103,4 @@ class Checker {
 document.addEventListener("DOMContentLoaded", function(){
     const check = new Checker(holidays)
     document.getElementById("app").innerHTML = check.render()
-});
+})
