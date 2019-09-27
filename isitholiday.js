@@ -22,7 +22,23 @@ const holidays = [
     ["2019-12-26", "the backup day for 21st of July."],
     ["2019-12-27", "the backup day for 2nd of November."],
     ["2019-12-30", "the day ULB thinks you should take a break."],
-    ["2019-12-31", "the day ULB thinks you should get drunk."]
+    ["2019-12-31", "the day ULB thinks you should get drunk."],
+    ["2020-01-01", "the New Year!! BTW Happy New Year ;)"],
+    ["2019-01-02", "a random holiday that we all enjoy."],
+    ["2019-04-13", "Easter."],
+    ["2019-05-01", "the celebration of work."],
+    ["2019-05-21", "the feast of the Ascension."],
+    ["2019-06-01", "the Pentecost."],
+    ["2020-07-21", "the Belgian national day."],
+    ["2020-11-02", "a random holiday."],
+    ["2020-11-11", "the Armistice of 1918."],
+    ["2020-11-20", "the Saint-Verhaegen (celebration of founding of ULB)."],
+    ["2020-12-24", "a fixed holiday."],
+    ["2020-12-25", "Christmas."],
+    ["2020-12-28", "the backup day for 15th of August."],
+    ["2020-12-29", "the backup day for 27th of September."],
+    ["2020-12-30", "the day ULB thinks you should take a break."],
+    ["2020-12-31", "the day ULB thinks you should get drunk."],
 ]
 
 class Checker {
