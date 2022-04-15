@@ -1,24 +1,6 @@
-// hilday calculator
+// holiday calculator
 
 const holidays = [
-    ["2020-01-01", "the New Year!! BTW Happy New Year ;)"],
-    ["2020-01-02", "a random holiday that we all enjoy."],
-    ["2020-04-13", "Easter."],
-    ["2020-05-01", "the celebration of work."],
-    ["2020-05-21", "the feast of the Ascension."],
-    ["2020-05-22", "the first covid holiday."],
-    ["2020-05-29", "the second covid holiday."],
-    ["2020-06-01", "the Pentecost."],
-    ["2020-07-21", "the Belgian national day."],
-    ["2020-11-02", "a random holiday."],
-    ["2020-11-11", "the Armistice of 1918."],
-    ["2020-11-20", "the Saint-Verhaegen (celebration of founding of ULB)."],
-    ["2020-12-24", "a fixed holiday."],
-    ["2020-12-25", "Christmas."],
-    ["2020-12-28", "the backup day for 15th of August."],
-    ["2020-12-29", "the backup day for 27th of September."],
-    ["2020-12-30", "the day ULB thinks you should take a break."],
-    ["2020-12-31", "the day ULB thinks you should get drunk."],
     ["2021-01-01", "the New Year!! BTW Happy New Year ;)"],
     ["2021-04-05", "Easter."],
     ["2021-05-13", "the feast of the Ascension."],
@@ -35,6 +17,23 @@ const holidays = [
     ["2021-12-29", "a backup day for another missed holiday."],
     ["2021-12-30", "the day ULB thinks you should take a break."],
     ["2021-12-31", "the day ULB thinks you should get drunk."],
+    
+    ["2022-01-03", "the backup day for the New Year!! BTW Happy New Year ;)"],
+    ["2022-04-18", "Easter."],
+    ["2022-05-26", "the feast of the Ascension."],
+    ["2022-06-06", "the Pentecost."],
+    ["2022-07-21", "the Belgian national day."],
+    ["2022-08-15", "the feast of the Assumption of Mary."],
+    ["2022-09-27", "the feast of Wallonie-Bruxelles federation."],
+    ["2022-11-01", "the All Saints' Day."],
+    ["2022-11-02", "a random holiday."],
+    ["2022-11-11", "the Armistice of 1918."],
+    ["2022-11-18", "the Saint-Verhaegen (celebration of founding of ULB)."],
+    ["2022-12-26", "a backup day for another missed holiday."],
+    ["2022-12-27", "a backup day for another missed holiday."],
+    ["2022-12-28", "a backup day for another missed holiday."],
+    ["2022-12-29", "the day ULB thinks you should take a break."],
+    ["2022-12-30", "the day ULB thinks you should take a break."],
 ]
 
 class Checker {
