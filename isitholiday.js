@@ -69,7 +69,7 @@ class Checker {
             // console.log(nextholiday)
             return nextholiday
         } else {
-            return "No next holiday"
+            return ["No next holiday","No next holiday"]
         }
     }
 
